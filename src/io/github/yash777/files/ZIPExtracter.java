@@ -1,4 +1,4 @@
-package com.github.yash777.files;
+package io.github.yash777.files;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.github.yash777.driver;
+package io.github.yash777.driver;
 
 /**
  * An enum type is a special data type 

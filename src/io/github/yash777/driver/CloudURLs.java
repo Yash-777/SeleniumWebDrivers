@@ -1,4 +1,4 @@
-package com.github.yash777.driver;
+package io.github.yash777.driver;
 
 /**
  * CloudURLs enum maintains the all the cloud URL's of the browsers.

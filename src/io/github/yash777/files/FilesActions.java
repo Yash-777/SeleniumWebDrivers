@@ -1,4 +1,4 @@
-package com.github.yash777.files;
+package io.github.yash777.files;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,8 @@ import java.nio.file.Paths;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import com.github.yash777.driver.WebDriverException;
+
+import io.github.yash777.driver.WebDriverException;
 /**
  * Download the file and maintain locally.
  * 

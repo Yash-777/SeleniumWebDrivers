@@ -1,30 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>com.github.Yash-777</groupId>
+  <groupId>io.github.Yash-777</groupId>
   <artifactId>SeleniumWebDrivers</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   
   <name>SeleniumWebDrivers</name>
   <description>
   Automatic management of Selenium Driver Executable's in run-time for Java.
   Which automates the required driver form cloud into your machine.
   </description>
-  
+  <inceptionYear>2017</inceptionYear>
   <organization>
-    <url>https://github.com/Yash-777</url>
-    <name>Yashwanth Open Source</name>
+    <url>http://Yash-777.github.io</url>
+    <name>GitHub</name>
   </organization>
-  
-  <developers>
-    <developer>
-      <id>Yash-777</id>
-      <name>Yashwanth</name>
-      <email>yashwanth.merugu@gmail.com</email>
-    </developer>
-  </developers>
-  
-  <!-- https://maven.apache.org/guides/mini/guide-central-repository-upload.html
+    <!-- https://maven.apache.org/guides/mini/guide-central-repository-upload.html
        APPLY THE APACHE LICENSE TO YOUR WORK « http://www.apache.org/licenses/LICENSE-2.0#apply
        Maven SCM « https://maven.apache.org/scm/index.html
              SCM Implementation: Git « https://maven.apache.org/scm/git.html -->
@@ -32,8 +24,23 @@
     <license>
       <name>Apache 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
+  <developers>
+    <developer>
+      <id>Yash-777</id>
+      <name>Yashwanth</name>
+      <email>yashwanth.merugu@gmail.com</email>
+      <url>http://Yash-777.github.io</url>
+      <organization>N/A</organization>
+      <organizationUrl>N/A</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>+5</timezone>
+    </developer>
+  </developers>
   <!--
   https://oss.sonatype.org/#AboutNexus
   https://support.sonatype.com/hc/en-us/articles/213465818-How-can-I-programmatically-upload-an-artifact-into-Nexus-2-
@@ -42,40 +49,14 @@
   <scm>
     <connection>scm:git:git://github.com/Yash-777/SeleniumWebDrivers.git</connection>
     <developerConnection>scm:git:git@github.com:Yash-777/SeleniumWebDrivers.git</developerConnection>
+    <tag>0.0.1</tag>
     <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
-    <tag>develop</tag>
   </scm>
   <issueManagement>
       <system>GitHub Issues</system>
       <url>https://github.com/Yash-777/SeleniumWebDrivers/issues</url>
   </issueManagement>
-  
-  <properties>
-    <commons-lang3>3.4</commons-lang3>
-    <seleniumVersion>2.53.0</seleniumVersion>
-    
-    <google.gson>2.8.0</google.gson>
-    <commons-io>2.5</commons-io>
-    <commons-compress>1.14</commons-compress>
-    <jarchivelib>0.7.1</jarchivelib>
-    
-    <!-- Build -->
-    <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
-    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-    <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
-    
-    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/ -->
-    <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
-    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-    <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
-    
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <maven.compiler.source>1.7</maven.compiler.source>
-  
-  </properties>
-  
-  <!-- [ https://github.com/sonatype/nexus-book-examples/blob/master/maven/simple-project/pom.xml ]
+    <!-- [ https://github.com/sonatype/nexus-book-examples/blob/master/maven/simple-project/pom.xml ]
   Deployment to a repository is configured in the pom.xml for the respective project in the
   distributionManagement section.
   http://books.sonatype.com/nexus-book/3.0/reference/maven.html#maven-sect-single-group
@@ -94,65 +75,38 @@
     https://blog.sonatype.com/2009/11/nexus-as-open-source-infrastructure-user-sign-up/ -->
     <repository>
         <id>sonatype-nexus-releases</id>
-        <name>Sonatype Nexus release repository</name>
+        <name>Sonatype Nexus Staging Repository</name>
         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <!-- Publish the versioned releases here --> 
     <snapshotRepository>
         <id>sonatype-nexus-snapshot</id>
-        <name>Sonatype Nexus snapshot repository</name>
+        <name>Sonatype Nexus Snapshot Repository</name>
         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-  
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <!-- 
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-   
+  <properties>
+    <commons-lang3>3.4</commons-lang3>
+    <seleniumVersion>2.53.0</seleniumVersion>
+    
+    <google.gson>2.8.0</google.gson>
+    <commons-io>2.5</commons-io>
+    <commons-compress>1.14</commons-compress>
+    <jarchivelib>0.7.1</jarchivelib>
+    
+    <!-- Build « https://mvnrepository.com/artifact/org.apache.maven.plugins/ -->
+    <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+    <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
+    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
     <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-       -->
-       
-       <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins -->
-      <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>${maven-release-plugin.version}</version>
-      </plugin>
-      <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${maven-surefire-plugin.version}</version>
-      </plugin>
-      <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${jacoco-maven-plugin.version}</version>
-          <executions>
-              <execution>
-                  <goals>
-                      <goal>prepare-agent</goal>
-                  </goals>
-              </execution>
-              <execution>
-                  <id>report</id>
-                  <phase>test</phase>
-                  <goals>
-                      <goal>report</goal>
-                  </goals>
-              </execution>
-          </executions>
-      </plugin>
-    </plugins>
-  </build>
+    <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
+    
+    <!--  Java 7  -->
+    <java.version>1.7</java.version>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+  </properties>
   
   <dependencies>
 	<!--
@@ -180,9 +134,10 @@
 		<version>${commons-compress}</version>
 	</dependency>
 	<dependency>
-	  <groupId>org.rauschig</groupId>
-	  <artifactId>jarchivelib</artifactId>
-	  <version>${jarchivelib}</version>
+		<groupId>org.rauschig</groupId>
+		<artifactId>jarchivelib</artifactId>
+		<version>${jarchivelib}</version>
+		<scope>compile</scope>
 	</dependency>
 	
 	<!-- GSON « com.google.code.gson/gson -->
@@ -193,37 +148,116 @@
 	</dependency>
   </dependencies>
   
-  <!-- <profiles>
-    <profile>
-        <id>release-sign-artifacts</id>
-        <activation>
-            <property>
-                <name>performRelease</name>
-                <value>true</value>
-            </property>
-        </activation>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven-gpg-plugin.version}</version>
-                    <configuration>
-                        <passphrase>${gpg.passphrase}</passphrase>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>sign-artifacts</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-  </profiles> -->
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>${maven-compiler-plugin.version}</version>
+         <configuration>
+           <source>${maven.compiler.source}</source>
+           <target>${maven.compiler.target}</target>
+         </configuration>
+      </plugin>
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-source-plugin</artifactId>
+         <version>${maven-source-plugin.version}</version>
+         <executions>
+           <execution>
+             <id>attach-sources</id>
+             <goals>
+               <goal>jar</goal>
+             </goals>
+           </execution>
+         </executions>
+      </plugin>
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-release-plugin</artifactId>
+         <version>${maven-release-plugin.version}</version>
+      </plugin>
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-surefire-plugin</artifactId>
+         <version>${maven-surefire-plugin.version}</version>
+         <executions>
+           <execution>
+             <id>default-test</id>
+             <phase>test</phase>
+             <goals>
+               <goal>test</goal>
+             </goals>
+           </execution>
+         </executions>
+      </plugin>
+      <plugin>
+         <groupId>org.jacoco</groupId>
+         <artifactId>jacoco-maven-plugin</artifactId>
+         <version>${jacoco-maven-plugin.version}</version>
+         <executions>
+            <execution>
+               <goals>
+                   <goal>prepare-agent</goal>
+               </goals>
+            </execution>
+            <execution>
+               <id>report</id>
+               <phase>test</phase>
+               <goals>
+                  <goal>report</goal>
+               </goals>
+            </execution>
+         </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <profiles>
+	<profile>
+	<id>release-sign-artifacts</id>
+	<activation>
+		<property>
+			<name>performRelease</name>
+			<value>true</value>
+		</property>
+	</activation>
+	<build>
+		<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-release-plugin</artifactId>
+			<version>${maven-release-plugin.version}</version>
+			<configuration>
+				<checkModificationExcludes>
+					<checkModificationExclude>pom.xml</checkModificationExclude>
+					<checkModificationExclude>target/</checkModificationExclude>
+					<checkModificationExclude>.gitignore</checkModificationExclude>
+				</checkModificationExcludes>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-gpg-plugin</artifactId>
+			<version>${maven-gpg-plugin.version}</version>
+			<configuration>
+				<passphrase>${gpg.passphrase}</passphrase>
+			</configuration>
+			<executions>
+				<execution>
+					<id>sign-artifacts</id>
+					<phase>verify</phase>
+					<goals>
+						<goal>sign</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		</plugins>
+	</build>
+</profile>
+  </profiles>
 
+  <url>http://Yash-777.github.io</url>
 </project>

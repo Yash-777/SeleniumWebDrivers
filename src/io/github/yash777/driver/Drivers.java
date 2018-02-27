@@ -14,19 +14,19 @@
  * limitations under the License.
  *
  */
-package com.github.yash777.driver;
+package io.github.yash777.driver;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.github.yash777.files.FilesActions;
-import com.github.yash777.files.ZIPExtracter;
+import io.github.yash777.files.FilesActions;
+import io.github.yash777.files.ZIPExtracter;
 
 /**
- * This class makes driver automation. If the driver is not available in the Application path
- * then it is going to download from the cloud and saves to temp path Drivers directory and
+ * This class makes driver automation. If the driver is not available in the Temporary path
+ * then it is going to download from the cloud and saves to Temporary/Drivers directory and
  * servers from that location.
  * 
  * <UL> DRIVERS:
@@ -80,7 +80,7 @@ public final class Drivers extends DriverVersions {
 		
 		//drivers.getSeleniumVersionPath("2.53.0");
 		//path = drivers.getDriverPath(Browser.CHROME, 51, "2.24");
-		path = drivers.getDriverPath(Browser.FIREFOX, 55, "");
+		path = drivers.getDriverPath(Browser.IEXPLORE, 11, "");
 		//path = drivers.getDriverPath(Browser.OPERA, 50, "");
 		//path = drivers.getDriverPath(Browser.OPERA, 28, "");
 				// drivers.getIExplorerExe_Path();
@@ -170,6 +170,10 @@ public final class Drivers extends DriverVersions {
 	
 	protected String getIExplorerExe_Path() throws IOException {
 		String seleniumVersion = Platform.classPathJarVersion.toString();
+		System.out.println("Selenium Version : "+ seleniumVersion);
+		if( seleniumVersion == null || seleniumVersion == "" ) {
+			throw new WebDriverException("Selenium is not added to your project build path.");
+		}
 		String IE_Pack = getSeleniumVersionPath(seleniumVersion);
 		
 		String zipFileFolder, driverZIPURL, driverEXEPath = null;

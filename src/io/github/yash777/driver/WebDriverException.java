@@ -1,4 +1,4 @@
-package com.github.yash777.driver;
+package io.github.yash777.driver;
 
 /**
  * WebDriverException is a custom exception class.

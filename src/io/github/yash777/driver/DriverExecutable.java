@@ -1,4 +1,4 @@
-package com.github.yash777.driver;
+package io.github.yash777.driver;
 
 /**
  * DriverExecutable enum contains the all the driver's names.
