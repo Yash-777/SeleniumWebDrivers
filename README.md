@@ -3,10 +3,11 @@ Automatic management of Selenium Driver Executable's in run-time for Java. Which
 
 
 ```html
-https://oss.sonatype.org/content/repositories/snapshots/<groupId>/<artifactId>/<version>/<artifactId>-<version>-<inceptionYear.Month.Date>.TimeZone.pom
+https://oss.sonatype.org/content/repositories/snapshots/<groupId>/<artifactId>
+    /<version>/<artifactId>-<version>-<inceptionYear.Month.Date>.TimeZone.pom
     
-https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/SeleniumWebDrivers/0.0.1-SNAPSHOT/SeleniumWebDrivers-0.0.1-*****.pom
-
+https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/SeleniumWebDrivers
+    /0.0.1-SNAPSHOT/SeleniumWebDrivers-0.0.1-*****.pom
 ```
 
 
@@ -32,11 +33,40 @@ SeleniumWebDrivers is open source, released under the terms of [Apache 2.0 Licen
 In order to use SeleniumWebDrivers in a Maven project, you need to add the following dependency in your pom.xml (Java 7 or higher required):
 
 ```xml
-<dependency>
-  <groupId>io.github.Yash-777</groupId>
-  <artifactId>SeleniumWebDrivers</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-</dependency>
+<properties>
+	<SeleniumWebDrivers>0.0.1-SNAPSHOT</SeleniumWebDrivers>
+	<jarchivelib>0.7.1</jarchivelib>
+</properties>
+<dependencies>
+	<dependency>
+	  <groupId>io.github.Yash-777</groupId>
+	  <artifactId>SeleniumWebDrivers</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.rauschig</groupId>
+	  <artifactId>jarchivelib</artifactId>
+	  <version>${jarchivelib}</version>
+	  <scope>compile</scope>
+	</dependency>
+</dependencies>
+```
+
+Adding the dependency as system scope and refer to it by its full path.
+
+```xml
+<!-- ${basedir} represents the directory containing pom.xml.
+<systemPath>${project.basedir}/lib/SeleniumWebDrivers.jar</systemPath>
+-->
+<dependencies>
+	<dependency>
+	  <groupId>io.github.Yash-777</groupId>
+	  <artifactId>SeleniumWebDrivers</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	    <scope>system</scope>
+	    <systemPath>E://SeleniumWebDrivers.jar</systemPath>
+	</dependency>
+</dependencies>
 ```
 
 ##### [SeleniumHQ](https://www.seleniumhq.org/download/)
@@ -44,8 +74,8 @@ In order to use SeleniumWebDrivers in a Maven project, you need to add the follo
 Selenium Server Standalone [2X] - [Maven](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server-standalone), [AWS](http://selenium-release.storage.googleapis.com)
 
 ###### Example
-```java
 
+```java
 package io.github.yash777.driver;
 
 Drivers drivers = new Drivers();
@@ -76,6 +106,5 @@ String IE_SeleniumVer = drivers.getDriverPath(Browser.IEXPLORE, 11, "");
 // Opera  
   System.setProperty("webdriver.opera.driver", OP50);
 // Internet Explorer
-  System.setProperty(InternetExplorerDriverService.IE_DRIVER_EXE_PROPERTY, IE_SeleniumVer);
-  
+  System.setProperty(InternetExplorerDriverService.IE_DRIVER_EXE_PROPERTY, IE_SeleniumVer);  
 ```
