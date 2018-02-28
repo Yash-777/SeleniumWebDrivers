@@ -13,7 +13,7 @@
   </description>
   <inceptionYear>2017</inceptionYear>
   <organization>
-    <url>http://Yash-777.github.io</url>
+    <url>https://yash-777.github.io/SeleniumWebDrivers/</url>
     <name>GitHub</name>
   </organization>
     <!-- https://maven.apache.org/guides/mini/guide-central-repository-upload.html
@@ -259,5 +259,5 @@
 </profile>
   </profiles>
 
-  <url>http://Yash-777.github.io</url>
+  <url>https://yash-777.github.io/SeleniumWebDrivers/index.html</url>
 </project>

@@ -1,1 +1,6 @@
+# File: _config.yml
+
+title: SeleniumWebDrivers
+description: Automate Browser Drivers
+show_downloads: false
 theme: jekyll-theme-merlot
