@@ -11,14 +11,16 @@ https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/Selen
 ```
 
 
-|   Browser   | Driver Cloud URL |
-|  :---  |  :---:  |
-| Firefox <sup>[Old Versions](http://ftp.mozilla.org/pub/firefox/releases/)</sup> | [Mozilla GeckoDriver](https://github.com/mozilla/geckodriver/releases) \| [XPI Extension](https://github.com/Yash-777/SeleniumDrives/raw/master/py/selenium/webdriver/firefox/) |
-| Google Chrome <sup>[Old Versions](https://www.slimjet.com/chrome/google-chrome-old-version.php)</sup> | ChromeDriver [Releases](http://chromedriver.storage.googleapis.com/index.html) <sup>[S3](http://chromedriver.storage.googleapis.com)</sup> |
-| Opera | OperaChromiumDriver [Releases](https://github.com/operasoftware/operachromiumdriver/releases) |
-| Internet Explorer |  Internet Explorer [Driver Server](http://selenium-release.storage.googleapis.com) <sup>[CHANGELOG](https://raw.githubusercontent.com/SeleniumHQ/selenium/master/cpp/iedriverserver/CHANGELOG)</sup> |
-| Microsoft Edge | [Microsoft WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver) |
+|   Browser   | Driver Cloud URL |  [Layout Engine](https://en.wikipedia.org/wiki/Web_browser_engine)  |   [JavaScript Engine](https://en.wikipedia.org/wiki/JavaScript_engine)  |
+|  :---  |  :---:  |  ---:  |  :---:  |
+| <img alt="Firefox Logo, 2017.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/64px-Firefox_Logo%2C_2017.svg.png" width="40" height="40" > Firefox <sup>[releases](http://ftp.mozilla.org/pub/firefox/releases/)</sup> | [GeckoDriver](https://github.com/mozilla/geckodriver/releases) \| [XPI Extension](https://github.com/Yash-777/SeleniumDrives/raw/master/py/selenium/webdriver/firefox/) | [Gecko](https://en.wikipedia.org/wiki/Gecko_(software)) | [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey) |
+| <img alt="Google Chrome icon (September 2014).svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/64px-Google_Chrome_icon_%28September_2014%29.svg.png" width="40" height="40"> Google Chrome <sup>[releases](https://www.slimjet.com/chrome/google-chrome-old-version.php)</sup> | ChromeDriver [Releases](http://chromedriver.storage.googleapis.com/index.html) <sup>[S3](http://chromedriver.storage.googleapis.com)</sup> | [Blink](https://en.wikipedia.org/wiki/Blink_(web_engine)) ([WebKit](https://en.wikipedia.org/wiki/WebKit) on iOS) | [V8](https://en.wikipedia.org/wiki/Chrome_V8) |
+| <img alt="Opera 2015 icon.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Opera_2015_icon.svg/64px-Opera_2015_icon.svg.png" width="40" height="40"> Opera | OperaChromiumDriver [Releases](https://github.com/operasoftware/operachromiumdriver/releases) | [Blink](https://en.wikipedia.org/wiki/Blink_(web_engine)) (formerly [Presto](https://en.wikipedia.org/wiki/Presto_(layout_engine))) | V8 |
+| <img alt="Small &quot;e&quot; letter with a blue aureola" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Internet_Explorer_10%2B11_logo.svg/65px-Internet_Explorer_10%2B11_logo.svg.png" width="41" height="40"> Internet Explorer |  [IEDriverServer](http://selenium-release.storage.googleapis.com) <sup>[CHANGELOG](https://raw.githubusercontent.com/SeleniumHQ/selenium/master/cpp/iedriverserver/CHANGELOG)</sup> | [Trident](https://en.wikipedia.org/wiki/Trident_(layout_engine)) | [Chakra (JScript9)](https://en.wikipedia.org/wiki/Chakra_(JScript_engine)) |
+| <img alt="Microsoft Edge logo.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Microsoft_Edge_logo.svg/60px-Microsoft_Edge_logo.svg.png" width="40" height="40"> Microsoft Edge | [Microsoft WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver) | [EdgeHTML](https://en.wikipedia.org/wiki/EdgeHTML) | [Chakra (JavaScript)](https://en.wikipedia.org/wiki/Chakra_(JScript_engine)) |
+| <img alt="Apple Safari 8.0 Icon" src="https://upload.wikimedia.org/wikipedia/en/6/61/Apple_Safari.png" width="40" height="40"> Safari <sup>[10](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)</sup> | SafariDriver.safariextz <sup>[2.48](http://selenium-release.storage.googleapis.com/index.html?path=2.48/)</sup> | [WebKit](https://en.wikipedia.org/wiki/WebKit) | [Nitro](https://en.wikipedia.org/wiki/WebKit#JavaScriptCore) |
 
+> Note: The SafariDriver is implemented as a Safari browser extension. The driver inverts the traditional client/server relationship and communicates with the WebDriver client using WebSockets.
 
 -----
 
