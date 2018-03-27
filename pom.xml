@@ -1,25 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+  <!-- Artifact -->
   <groupId>io.github.Yash-777</groupId>
   <artifactId>SeleniumWebDrivers</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  
+  <!-- Project - ${project.artifactId} -->
   <name>SeleniumWebDrivers</name>
   <description>
   Automatic management of Selenium Driver Executable's in run-time for Java.
   Which automates the required driver form cloud into your machine.
   </description>
-  <inceptionYear>2017</inceptionYear>
+  <url>https://yash-777.github.io/SeleniumWebDrivers</url>
+  <inceptionYear>2018</inceptionYear>
+  <!-- Organization -->
   <organization>
     <url>https://yash-777.github.io/SeleniumWebDrivers/</url>
-    <name>GitHub</name>
+    <name>GitHub OpenSource</name>
   </organization>
-    <!-- https://maven.apache.org/guides/mini/guide-central-repository-upload.html
-       APPLY THE APACHE LICENSE TO YOUR WORK « http://www.apache.org/licenses/LICENSE-2.0#apply
-       Maven SCM « https://maven.apache.org/scm/index.html
-             SCM Implementation: Git « https://maven.apache.org/scm/git.html -->
   <licenses>
     <license>
       <name>Apache 2.0</name>
@@ -41,35 +40,16 @@
       <timezone>+5</timezone>
     </developer>
   </developers>
-  <!--
-  https://oss.sonatype.org/#AboutNexus
-  https://support.sonatype.com/hc/en-us/articles/213465818-How-can-I-programmatically-upload-an-artifact-into-Nexus-2-
-  https://stackoverflow.com/questions/8414008/how-to-deploy-my-artifact-on-to-my-nexus
-  -->
   <scm>
+    <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
     <connection>scm:git:git://github.com/Yash-777/SeleniumWebDrivers.git</connection>
     <developerConnection>scm:git:git@github.com:Yash-777/SeleniumWebDrivers.git</developerConnection>
     <tag>0.0.1</tag>
-    <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
   </scm>
   <issueManagement>
       <system>GitHub Issues</system>
       <url>https://github.com/Yash-777/SeleniumWebDrivers/issues</url>
   </issueManagement>
-    <!-- [ https://github.com/sonatype/nexus-book-examples/blob/master/maven/simple-project/pom.xml ]
-  Deployment to a repository is configured in the pom.xml for the respective project in the
-  distributionManagement section.
-  http://books.sonatype.com/nexus-book/3.0/reference/maven.html#maven-sect-single-group
-  Nexus Repository Manager Examples « https://github.com/sonatype/nexus-book-examples
-  
-  https://stackoverflow.com/questions/5308079/why-maven-settings-xml-file-is-not-there
-  http://maven.apache.org/pom.html#Distribution_Management
-  
-  http://maven.apache.org/settings.html
-  https://github.com/sonatype/nexus-book-examples/blob/master/maven/settings/settings.xml
-  
-  http://www.vineetmanohar.com/2010/06/getting-started-with-nexus-maven-repo-manager/
-  -->
   <distributionManagement>
     <!-- Free in OSS Version « https://www.sonatype.com/nexus-repository-sonatype 
     https://blog.sonatype.com/2009/11/nexus-as-open-source-infrastructure-user-sign-up/ -->
@@ -106,6 +86,8 @@
     <java.version>1.7</java.version>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.source>${java.version}</maven.compiler.source>
+    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <dependencies>
@@ -169,6 +151,7 @@
              <id>attach-sources</id>
              <goals>
                <goal>jar</goal>
+               
              </goals>
            </execution>
          </executions>
@@ -198,66 +181,84 @@
          <version>${jacoco-maven-plugin.version}</version>
          <executions>
             <execution>
+               <id>prepare-agent</id>
                <goals>
                    <goal>prepare-agent</goal>
                </goals>
             </execution>
             <execution>
                <id>report</id>
-               <phase>test</phase>
+               <phase>prepare-package</phase>
                <goals>
                   <goal>report</goal>
                </goals>
+               <configuration>
+                  <outputDirectory>${project.build.directory}/jacoco</outputDirectory>
+               </configuration>
             </execution>
          </executions>
       </plugin>
+      <!-- <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.7</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin> -->
     </plugins>
   </build>
   
   <profiles>
 	<profile>
-	<id>release-sign-artifacts</id>
-	<activation>
-		<property>
-			<name>performRelease</name>
-			<value>true</value>
-		</property>
-	</activation>
-	<build>
-		<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-release-plugin</artifactId>
-			<version>${maven-release-plugin.version}</version>
-			<configuration>
-				<checkModificationExcludes>
-					<checkModificationExclude>pom.xml</checkModificationExclude>
-					<checkModificationExclude>target/</checkModificationExclude>
-					<checkModificationExclude>.gitignore</checkModificationExclude>
-				</checkModificationExcludes>
-			</configuration>
-		</plugin>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-gpg-plugin</artifactId>
-			<version>${maven-gpg-plugin.version}</version>
-			<configuration>
-				<passphrase>${gpg.passphrase}</passphrase>
-			</configuration>
-			<executions>
-				<execution>
-					<id>sign-artifacts</id>
-					<phase>verify</phase>
-					<goals>
-						<goal>sign</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-		</plugins>
-	</build>
-</profile>
+		<id>release-sign-artifacts</id>
+		<activation>
+			<property>
+				<name>performRelease</name>
+				<value>true</value>
+			</property>
+		</activation>
+		<build>
+			<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${maven-release-plugin.version}</version>
+				<configuration>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+						<checkModificationExclude>target/</checkModificationExclude>
+						<checkModificationExclude>docs/</checkModificationExclude>
+						<checkModificationExclude>.gitignore</checkModificationExclude>
+						<checkModificationExclude>README.md</checkModificationExclude>
+						<checkModificationExclude>LICENSE</checkModificationExclude>
+						<checkModificationExclude>_config.yml</checkModificationExclude>
+					</checkModificationExcludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>${maven-gpg-plugin.version}</version>
+				<configuration>
+					<passphrase>${gpg.passphrase}</passphrase>
+				</configuration>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			</plugins>
+		</build>
+	</profile>
   </profiles>
 
-  <url>https://yash-777.github.io/SeleniumWebDrivers/index.html</url>
 </project>
