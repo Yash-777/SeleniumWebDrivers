@@ -73,9 +73,24 @@ Adding the dependency as system scope and refer to it by its full path.
 
 ##### [SeleniumHQ](https://www.seleniumhq.org/download/)
 
-Selenium Server Standalone [2X] - [Maven](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server-standalone), [AWS](http://selenium-release.storage.googleapis.com)
+Selenium is an umbrella project encapsulating a variety of tools and 
+libraries enabling web browser automation. Selenium specifically 
+provides infrastructure for the [W3C WebDriver specification](https://dvcs.w3.org/hg/webdriver/raw-file/tip/webdriver-spec.html) 
+— a platform and language-neutral coding interface compatible with all 
+major web browsers.
 
-###### Example
+Selenium Documentation
+
+* [User Manual](http://docs.seleniumhq.org/docs/)
+* [Java](http://seleniumhq.github.io/selenium/docs/api/java/index.html) and jar (`Selenium Server Standalone [2X, 3X]` - [Maven](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server-standalone), [AWS](http://selenium-release.storage.googleapis.com) )
+
+Default [Version Mappling file](https://raw.githubusercontent.com/Yash-777/SeleniumDriverAutomation/master/Drivers/versions-mapping) from the GITHUB.
+If the Default `Version Mappling file` doesnt contain latest mapping information then you can download the mapping file and upadate with new mapping's, then you can pass it to get the updated driver.
+
+
+###### Example Usage
+
+Either use default Version Mappling file (OR) Provide Version pack information as parameter.
 
 ```java
 package io.github.yash777.driver;
@@ -94,19 +109,40 @@ String CH_2_24 = drivers.getDriverPath(Browser.CHROME, 51, "2.24");
 
 /** IE Driver form selenium version pack.
  * Exception « io.github.yash777.driver.WebDriverException: Selenium is not added to your project build path.
-*/
+ */
 String IE_SeleniumVer = drivers.getDriverPath(Browser.IEXPLORE, 11, "");
+```
+Download the mapplig file and update it with new mapping information. So, that applicaton uses new mapping information.
 
+* If you maintain **file over server**, then use the below sample code.
+
+```java
+String cloud_VersionMappingURL = "https://raw.githubusercontent.com/Yash-777/SeleniumDriverAutomation/master/Drivers/versions-mapping";
+DriverVersions.setVersionMappingFileURL( cloud_VersionMappingURL );
+```
+
+* If you maintain the **file in local machine**, then use the below sample code.
+
+```java
+System.setProperty("selenium.drivers.mappingfile", "D:/DriversMapping.txt");
+```
+
+Samples to add drvier files to Selenium.
+
+```java
 /** After getting the driver path you can set it as System property */
 // Firefox
-  //F_Version XPI - List is > 17,24,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47.
-  System.setProperty(FirefoxDriver.SystemProperty.DRIVER_XPI_PROPERTY, FF46);
-  //SELENIUM-3 Mozilla GeckoDriver
-  System.setProperty("webdriver.gecko.driver", FF55);
+//F_Version XPI - List is > 17,24,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47.
+System.setProperty(FirefoxDriver.SystemProperty.DRIVER_XPI_PROPERTY, FF46);
+//SELENIUM-3 Mozilla GeckoDriver
+System.setProperty("webdriver.gecko.driver", FF55);
+
 // Google Chrome
-  System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, CH51);
+System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, CH51);
 // Opera  
-  System.setProperty("webdriver.opera.driver", OP50);
+System.setProperty("webdriver.opera.driver", OP50);
 // Internet Explorer
-  System.setProperty(InternetExplorerDriverService.IE_DRIVER_EXE_PROPERTY, IE_SeleniumVer);  
+System.setProperty(InternetExplorerDriverService.IE_DRIVER_EXE_PROPERTY, IE_SeleniumVer);  
 ```
+
+If you are getting an exception like `javax.net.ssl.SSLException: Received fatal alert: protocol_version` then [refer to this POST](https://stackoverflow.com/a/49556107/5081877).

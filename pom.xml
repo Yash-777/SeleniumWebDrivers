@@ -176,7 +176,7 @@
            </execution>
          </executions>
       </plugin>
-      <plugin>
+      <!-- <plugin>
          <groupId>org.jacoco</groupId>
          <artifactId>jacoco-maven-plugin</artifactId>
          <version>${jacoco-maven-plugin.version}</version>
@@ -198,18 +198,18 @@
                </configuration>
             </execution>
          </executions>
-      </plugin>
-      <!-- <plugin>
+      </plugin> -->
+      <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
         <version>1.6.7</version>
         <extensions>true</extensions>
         <configuration>
-          <serverId>ossrh</serverId>
+          <serverId>sonatype-nexus-staging</serverId>
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
-      </plugin> -->
+      </plugin>
     </plugins>
     <!-- <resources>
       <resource>
@@ -239,7 +239,7 @@
 				<version>${maven-release-plugin.version}</version>
 				<configuration>
 					<checkModificationExcludes>
-						<checkModificationExclude>pom.xml</checkModificationExclude>
+						<!-- <checkModificationExclude>pom.xml</checkModificationExclude> -->
 						<checkModificationExclude>target/</checkModificationExclude>
 						<checkModificationExclude>docs/</checkModificationExclude>
 						<checkModificationExclude>.gitignore</checkModificationExclude>
