@@ -44,7 +44,7 @@
     <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
     <connection>scm:git:git://github.com/Yash-777/SeleniumWebDrivers.git</connection>
     <developerConnection>scm:git:git@github.com:Yash-777/SeleniumWebDrivers.git</developerConnection>
-    <tag>0.0.1</tag>
+    <tag>SeleniumWebDrivers-0.0.1</tag>
   </scm>
   <issueManagement>
       <system>GitHub Issues</system>
