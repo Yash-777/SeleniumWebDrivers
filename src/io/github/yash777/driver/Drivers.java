@@ -18,6 +18,8 @@ package io.github.yash777.driver;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -73,17 +75,22 @@ public final class Drivers extends DriverVersions {
 		if( Platform.OSName.toString().contains("WIN") ) {
 			System.out.println("====");
 		}
-		String path;
-		//drivers.getDriverPath(Browser.FIREFOX, 41, "");
-		//drivers.getFireFoxExe_Path("v0.19.1");
-		//drivers.getDriverPath(Browser.FIREFOX, 48, "v0.19.1");
 		
-		//drivers.getSeleniumVersionPath("2.53.0");
+		// System.setProperty("javax.net.debug", "all");
+		System.setProperty("https.protocols", "TLSv1,TLSv1.1,TLSv1.2");
+		//System.setProperty("selenium.drivers.mappingfile", "D:/DriversMapping.txt");
+		
+		System.out.println("Chiper : "+ System.getProperty("https.protocols") );
+		String path = null;
+		//path = drivers.getDriverPath(Browser.FIREFOX, 41, "");
+		//path = drivers.getDriverPath(Browser.FIREFOX, 48, "v0.19.1");
 		//path = drivers.getDriverPath(Browser.CHROME, 51, "2.24");
-		path = drivers.getDriverPath(Browser.IEXPLORE, 11, "");
-		//path = drivers.getDriverPath(Browser.OPERA, 50, "");
+		//path = drivers.getDriverPath(Browser.IEXPLORE, 11, "");
+		path = drivers.getDriverPath(Browser.OPERA, 50, "");
 		//path = drivers.getDriverPath(Browser.OPERA, 28, "");
-				// drivers.getIExplorerExe_Path();
+			//path = drivers.getSeleniumVersionPath("2.53.0");
+			//path = drivers.getFireFoxExe_Path("v0.19.1");
+			//path = drivers.getIExplorerExe_Path();
 		System.out.println("Path : "+path);
 		
 	}
@@ -99,14 +106,21 @@ public final class Drivers extends DriverVersions {
 	
 	public String getDriverPath(Browser browser, int version, String versionPack) throws WebDriverException, IOException {
 		
-		String jsonStr = null;
-		try {
-			jsonStr = FilesActions.readCloudFileAsString( versionMappingFileURL );
-			System.out.println( jsonStr );
-		} catch (IOException e) {
-			e.printStackTrace();
+		if( versionPack == null || versionPack == "" ) {
+			String jsonStr = null;
+			String property = System.getProperty("selenium.drivers.mappingfile");
+			if( property != null ) { // java.nio.file.NoSuchFileException:
+				System.out.println( "Mapping File Path : "+ property );
+				jsonStr = new String(Files.readAllBytes(Paths.get( property )));
+			} else {
+				try {
+					jsonStr = FilesActions.readCloudFileAsString( versionMappingFileURL );
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			json_UnKnown_Format( jsonStr );
 		}
-		json_UnKnown_Format( jsonStr );
 		
 		switch( browser ) {
 			case FIREFOX:

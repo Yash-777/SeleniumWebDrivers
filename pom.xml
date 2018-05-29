@@ -131,6 +131,7 @@
   </dependencies>
   
   <build>
+    <!-- <finalName>JarFileName</finalName> -->
     <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
@@ -210,6 +211,15 @@
         </configuration>
       </plugin> -->
     </plugins>
+    <!-- <resources>
+      <resource>
+		<directory>${basedir}/lib</directory>
+		<filtering>true</filtering>
+		<includes>
+			<include>**/*.jar</include>
+		</includes>
+      </resource>
+    </resources> -->
   </build>
   
   <profiles>
