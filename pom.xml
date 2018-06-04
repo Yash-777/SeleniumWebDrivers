@@ -3,7 +3,7 @@
   <!-- Artifact -->
   <groupId>io.github.Yash-777</groupId>
   <artifactId>SeleniumWebDrivers</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <!-- Project - ${project.artifactId} -->
   <name>SeleniumWebDrivers</name>
@@ -43,7 +43,7 @@
     <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
     <connection>scm:git:https://github.com/Yash-777/SeleniumWebDrivers.git</connection>
     <developerConnection>scm:git:https://github.com/Yash-777/SeleniumWebDrivers.git</developerConnection>
-    <tag>SNAPSHOT</tag>
+    <tag>SeleniumWebDrivers-0.0.1</tag>
   </scm>
   <issueManagement>
       <system>GitHub Issues</system>
