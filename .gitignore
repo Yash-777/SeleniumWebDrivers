@@ -8,3 +8,7 @@ README.md
 
 _config.yml
 /docs/*
+
+
+pom.xml.releaseBackup
+release.properties

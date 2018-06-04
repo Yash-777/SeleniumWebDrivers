@@ -6,7 +6,7 @@
   <version>0.0.2-SNAPSHOT</version>
   <packaging>jar</packaging>
   <!-- Project - ${project.artifactId} -->
-  <name>SeleniumWebDrivers</name>
+  <name>${project.groupId}:${project.artifactId}</name>
   <description>
   Automatic management of Selenium Driver Executable's in run-time for Java.
   Which automates the required driver form cloud into your machine.
@@ -43,7 +43,7 @@
     <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
     <connection>scm:git:https://github.com/Yash-777/SeleniumWebDrivers.git</connection>
     <developerConnection>scm:git:https://github.com/Yash-777/SeleniumWebDrivers.git</developerConnection>
-    <tag>SeleniumWebDrivers-0.0.1</tag>
+    <tag>SeleniumWebDrivers</tag>
   </scm>
   <issueManagement>
       <system>GitHub Issues</system>
@@ -163,6 +163,17 @@
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-release-plugin</artifactId>
          <version>${maven-release-plugin.version}</version>
+         <configuration>
+			<tagNameFormat>@{project.artifactId}/@{project.version}</tagNameFormat>
+			<checkModificationExcludes>
+				<!-- <checkModificationExclude>pom.xml</checkModificationExclude> -->
+				<checkModificationExclude>target/</checkModificationExclude>
+				<checkModificationExclude>docs/</checkModificationExclude>
+				<checkModificationExclude>.gitignore</checkModificationExclude>
+				<checkModificationExclude>README.md</checkModificationExclude>
+				<checkModificationExclude>LICENSE</checkModificationExclude>
+			</checkModificationExcludes>
+		</configuration>
       </plugin>
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
@@ -176,6 +187,23 @@
           <!--  we want to inspect before releasing  -->
         </configuration>
       </plugin>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-gpg-plugin</artifactId>
+		<version>${maven-gpg-plugin.version}</version>
+		<configuration>
+			<passphrase>${gpg.passphrase}</passphrase>
+		</configuration>
+		<executions>
+			<execution>
+				<id>sign-artifacts</id>
+				<phase>verify</phase>
+				<goals>
+					<goal>sign</goal>
+				</goals>
+			</execution>
+		</executions>
+	  </plugin>
     </plugins>
     <!-- <resources>
       <resource>
@@ -188,54 +216,4 @@
     </resources> -->
   </build>
   
-  <profiles>
-	<profile>
-		<id>release-sign-artifacts</id>
-		<activation>
-			<property>
-				<name>performRelease</name>
-				<value>true</value>
-			</property>
-		</activation>
-		<build>
-			<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>${maven-release-plugin.version}</version>
-				<configuration>
-					<tag>parent-${releaseVersion}</tag>
-					<tagNameFormat>@{project.artifactId}/@{project.version}</tagNameFormat>
-					<checkModificationExcludes>
-						<!-- <checkModificationExclude>pom.xml</checkModificationExclude> -->
-						<checkModificationExclude>target/</checkModificationExclude>
-						<checkModificationExclude>docs/</checkModificationExclude>
-						<checkModificationExclude>.gitignore</checkModificationExclude>
-						<checkModificationExclude>README.md</checkModificationExclude>
-						<checkModificationExclude>LICENSE</checkModificationExclude>
-					</checkModificationExcludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>${maven-gpg-plugin.version}</version>
-				<configuration>
-					<passphrase>${gpg.passphrase}</passphrase>
-				</configuration>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			</plugins>
-		</build>
-	</profile>
-  </profiles>
-
 </project>
