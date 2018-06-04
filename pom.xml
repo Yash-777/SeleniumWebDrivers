@@ -3,7 +3,7 @@
   <!-- Artifact -->
   <groupId>io.github.Yash-777</groupId>
   <artifactId>SeleniumWebDrivers</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <!-- Project - ${project.artifactId} -->
   <name>SeleniumWebDrivers</name>
@@ -41,8 +41,8 @@
   </developers>
   <scm>
     <url>https://github.com/Yash-777/SeleniumWebDrivers</url>
-    <connection>scm:git:git://github.com/Yash-777/SeleniumWebDrivers.git</connection>
-    <developerConnection>scm:git:git@github.com:Yash-777/SeleniumWebDrivers.git</developerConnection>
+    <connection>scm:git:https://github.com/Yash-777/SeleniumWebDrivers.git</connection>
+    <developerConnection>scm:git:https://github.com/Yash-777/SeleniumWebDrivers.git</developerConnection>
     <tag>SeleniumWebDrivers-0.0.1</tag>
   </scm>
   <issueManagement>
@@ -87,6 +87,9 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <!-- https://stackoverflow.com/a/28284333/5081877 -->
+    <project.scm.id>my-scm-server</project.scm.id>
   </properties>
   
   <dependencies>
