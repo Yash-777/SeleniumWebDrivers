@@ -3,7 +3,7 @@
   <!-- Artifact -->
   <groupId>io.github.Yash-777</groupId>
   <artifactId>SeleniumWebDrivers</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <!-- Project - ${project.artifactId} -->
   <name>${project.groupId}:${project.artifactId}</name>
@@ -50,14 +50,11 @@
       <url>https://github.com/Yash-777/SeleniumWebDrivers/issues</url>
   </issueManagement>
   <distributionManagement>
-    <!-- Free in OSS Version « https://www.sonatype.com/nexus-repository-sonatype 
-    https://blog.sonatype.com/2009/11/nexus-as-open-source-infrastructure-user-sign-up/ -->
     <repository>
         <id>sonatype-nexus-releases</id>
         <name>Sonatype Nexus Staging Repository</name>
         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-    <!-- Publish the versioned releases here --> 
     <snapshotRepository>
         <id>sonatype-nexus-snapshot</id>
         <name>Sonatype Nexus Snapshot Repository</name>
@@ -78,7 +75,6 @@
     <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
     <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
     
     <!--  Java 7  -->
@@ -90,28 +86,24 @@
     
     <!-- https://stackoverflow.com/a/28284333/5081877 -->
     <project.scm.id>my-scm-server</project.scm.id>
+    
+    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+    	<gpg.keyname>ADFF18D60ABF0188</gpg.keyname>
+    	<gpg.passphraseServerId>Yash@Sonatype</gpg.passphraseServerId>
+    
+    
+    <nexus-staging-maven-plugin-version>1.6.7</nexus-staging-maven-plugin-version>
+		
+		<sonatype-nexus-staging>sonatype-nexus-staging</sonatype-nexus-staging>
+		<sonatype-nexus-staging-url>https://oss.sonatype.org/</sonatype-nexus-staging-url>
   </properties>
   
   <dependencies>
-	<!--
-	<dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-lang3</artifactId>
-		<version>${commons-lang3}</version>
-	</dependency>
-	
-	<dependency>
-		<groupId>org.seleniumhq.selenium</groupId>
-		<artifactId>selenium-server</artifactId>
-		<version>${seleniumVersion}</version>
-	</dependency> -->
-	
 	<dependency>
 		<groupId>commons-io</groupId>
 		<artifactId>commons-io</artifactId>
 		<version>${commons-io}</version>
 	</dependency>
-	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
 	<dependency>
 		<groupId>org.apache.commons</groupId>
 		<artifactId>commons-compress</artifactId>
@@ -153,18 +145,35 @@
            <execution>
              <id>attach-sources</id>
              <goals>
-               <goal>jar</goal>
-               
+               <goal>jar-no-fork</goal>
              </goals>
            </execution>
          </executions>
       </plugin>
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>2.9.1</version>
+      <executions>
+        <execution>
+          <id>attach-javadocs</id>
+          <goals>
+            <goal>jar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
       <plugin>
          <groupId>org.apache.maven.plugins</groupId>
          <artifactId>maven-release-plugin</artifactId>
          <version>${maven-release-plugin.version}</version>
          <configuration>
 			<tagNameFormat>@{project.artifactId}/@{project.version}</tagNameFormat>
+			<autoVersionSubmodules>true</autoVersionSubmodules>
+			<useReleaseProfile>false</useReleaseProfile>
+			<releaseProfiles>release</releaseProfiles>
+			<goals>deploy</goals>
+			
 			<checkModificationExcludes>
 				<!-- <checkModificationExclude>pom.xml</checkModificationExclude> -->
 				<checkModificationExclude>target/</checkModificationExclude>
@@ -178,22 +187,18 @@
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.7</version>
+        <version>${nexus-staging-maven-plugin-version}</version>
         <extensions>true</extensions>
         <configuration>
-          <serverId>sonatype-nexus-staging</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>false</autoReleaseAfterClose>
-          <!--  we want to inspect before releasing  -->
+          <serverId>${sonatype-nexus-staging}</serverId>
+          <nexusUrl>${sonatype-nexus-staging-url}</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
       <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-gpg-plugin</artifactId>
 		<version>${maven-gpg-plugin.version}</version>
-		<configuration>
-			<passphrase>${gpg.passphrase}</passphrase>
-		</configuration>
 		<executions>
 			<execution>
 				<id>sign-artifacts</id>
@@ -201,19 +206,14 @@
 				<goals>
 					<goal>sign</goal>
 				</goals>
+				
+				<configuration>
+					<keyname>${gpg.keyname}</keyname>
+					<passphraseServerId>${gpg.passphraseServerId}</passphraseServerId>
+				</configuration>
 			</execution>
 		</executions>
 	  </plugin>
     </plugins>
-    <!-- <resources>
-      <resource>
-		<directory>${basedir}/lib</directory>
-		<filtering>true</filtering>
-		<includes>
-			<include>**/*.jar</include>
-		</includes>
-      </resource>
-    </resources> -->
   </build>
-  
 </project>

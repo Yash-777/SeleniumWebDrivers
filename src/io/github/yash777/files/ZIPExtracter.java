@@ -12,7 +12,7 @@ import org.rauschig.jarchivelib.CompressionType;
 
 /**
  * ZIPExtracter class is to extract the contents of a ZIP file.
- * <p>Example <a href="https://stackoverflow.com/a/48788415/5081877">Post</a>
+ * <p>Example <a href="https://stackoverflow.com/a/48788415/5081877">Post</a></p>
  * 
  * @author yashwanth.m
  *
@@ -48,10 +48,10 @@ public class ZIPExtracter extends FilesActions {
 	 * This field is initialized to contain the first character of the value of the system property file.separator.
 	 * On UNIX systems the value of this field is '/'; on Microsoft Windows systems it is '\\'.
 	 * 
-	 * @param zipfilePath
-	 * @param outdir
-	 * @return
-	 * @throws IOException
+	 * @param zipfilePath « zip file to extract
+	 * @param outdir      « extract zip file in this folder
+	 * @return the driver file path.
+	 * @throws IOException « Signals that an I/O exception of some sort has occurred.
 	 */
 	public String exratctFileList( String zipfilePath, String outdir ) throws IOException {
 		String outpath = null;

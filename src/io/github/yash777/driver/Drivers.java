@@ -31,7 +31,8 @@ import io.github.yash777.files.ZIPExtracter;
  * then it is going to download from the cloud and saves to Temporary/Drivers directory and
  * servers from that location.
  * 
- * <UL> DRIVERS:
+ * <p><span>DRIVERS:</span></p>
+ * <UL>
  * <LI> <B>Firefox</B> - <I>Firefox driver is included in the selenium-server-standalone.jar 
  * available in the downloads</I></LI>
  * <LI> <B>Internet Explorer</B> - <I>The InternetExplorerDriver is a standalone server 
@@ -41,14 +42,16 @@ import io.github.yash777.files.ZIPExtracter;
  * wire protocol for Chromium.</I></LI>
  * <LI> <B>Opera</B> - <I>OperaDriver is a vendor-supported WebDriver implementation developed
  *  by Opera Software and volunteers that implements WebDriver API for Opera.</I>
- * 	<UL> <B><a href="https://stackoverflow.com/a/31586683/5081877" >OperaChromiumDriver:</a></B>
- * 		<LI>OperaChromiumDriver is a WebDriver implementation derived from ChromeDriver 
+ *  <p><span><a href="https://stackoverflow.com/a/31586683/5081877" >OperaChromiumDriver</a>:</span></p>
+ *  <UL>
+ *     <LI> OperaChromiumDriver is a WebDriver implementation derived from ChromeDriver 
  *  and adapted by Opera. http://www.opera.com/docs/history/</LI>
  *  </UL>
  * </LI>
  * <LI> <B>Safari</B> - <I>The SafariDriver is implemented as a Safari browser extension.
  * The driver inverts the traditional client/server relationship and communicates with the 
  * WebDriver client using WebSockets.</I></LI>
+ * </UL>
  * 
  * @author yashwanth.m
  *

@@ -51,9 +51,8 @@ public class FilesActions {
 	 * Channels are designed to provide for bulk data transfers to and from NIO buffers.
 	 * 
 	 * https://en.wikipedia.org/wiki/Non-blocking_I/O_(Java)
-	 * @param urlStr
-	 * @param file
-	 * @throws IOException
+	 * @param targetfile « to save the downloaded files as target file.
+	 * @throws IOException « input file not found exception.
 	 */
 	public void downloadUsing_NIOChannel( String targetfile ) throws IOException {
 		try {
