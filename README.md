@@ -1,13 +1,13 @@
 ### SeleniumWebDrivers
 Automatic management of Selenium Driver Executable's in run-time for Java. Which automates the required driver form cloud into your machine.
 
-```html
-https://oss.sonatype.org/content/repositories/snapshots/<groupId>/<artifactId>
-    /<version>/<artifactId>-<version>-<inceptionYear.Month.Date>.TimeZone.pom
-    
-https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/SeleniumWebDrivers
-    /0.0.1-SNAPSHOT/SeleniumWebDrivers-0.0.1-*****.pom
-```
+
+### SeleniumWebDrivers API <img alt="SeleniumWebDrivers" align="middle" src="https://raw.githubusercontent.com/Yash-777/SeleniumWebDrivers/master/docs/SeleniumWebDrivers.png" width="80" height="80">
+
+
+SeleniumWebDrivers is used for driver automation. If the driver is not available in the Temporary path then it is going to download from the cloud and saves to Temporary/Drivers directory and servers from that location. 
+
+SeleniumWebDrivers is open source, released under the terms of [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
 
 
 |   Browser   | Driver Cloud URL |  [Layout Engine](https://en.wikipedia.org/wiki/Web_browser_engine)  |   [JavaScript Engine](https://en.wikipedia.org/wiki/JavaScript_engine)  |
@@ -23,52 +23,19 @@ https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/Selen
 
 -----
 
-### SeleniumWebDrivers API <img alt="SeleniumWebDrivers" align="middle" src="https://raw.githubusercontent.com/Yash-777/SeleniumWebDrivers/master/docs/SeleniumWebDrivers.png" width="80" height="80">
-
-
-SeleniumWebDrivers is used for driver automation. If the driver is not available in the Temporary path then it is going to download from the cloud and saves to Temporary/Drivers directory and servers from that location. 
-
-SeleniumWebDrivers is open source, released under the terms of [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
-
 ###### Usage
 
 In order to use SeleniumWebDrivers in a Maven project, you need to add the following dependency in your pom.xml (Java 7 or higher required):
 
-```xml
-<properties>
-	<SeleniumWebDrivers>0.0.1-SNAPSHOT</SeleniumWebDrivers>
-	<jarchivelib>0.7.1</jarchivelib>
-</properties>
-<dependencies>
-	<dependency>
-	  <groupId>io.github.Yash-777</groupId>
-	  <artifactId>SeleniumWebDrivers</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.rauschig</groupId>
-	  <artifactId>jarchivelib</artifactId>
-	  <version>${jarchivelib}</version>
-	  <scope>compile</scope>
-	</dependency>
-</dependencies>
-```
-
-Adding the dependency as system scope and refer to it by its full path.
+ * Sonatype nexus <sup>Central [Snapshot](https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/SeleniumWebDrivers/), [`pom`](https://search.maven.org/artifact/io.github.Yash-777/SeleniumWebDrivers/1.0.0/jar)</sup>
+ * Maven Repository <sup>Central [Repository](https://repo.maven.apache.org/maven2/io/github/Yash-777/SeleniumWebDrivers/), [`pom`](https://mvnrepository.com/artifact/io.github.Yash-777/SeleniumWebDrivers/1.0.0)</sup>
 
 ```xml
-<!-- ${basedir} represents the directory containing pom.xml.
-<systemPath>${project.basedir}/lib/SeleniumWebDrivers.jar</systemPath>
--->
-<dependencies>
-	<dependency>
-	  <groupId>io.github.Yash-777</groupId>
-	  <artifactId>SeleniumWebDrivers</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
-	    <scope>system</scope>
-	    <systemPath>E://SeleniumWebDrivers.jar</systemPath>
-	</dependency>
-</dependencies>
+<dependency>
+    <groupId>io.github.Yash-777</groupId>
+    <artifactId>SeleniumWebDrivers</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 ##### [SeleniumHQ](https://www.seleniumhq.org/download/)
