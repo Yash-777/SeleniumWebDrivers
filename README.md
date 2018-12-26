@@ -1,5 +1,5 @@
 ### SeleniumWebDrivers
-Automatic management of Selenium Driver Executable's in run-time for Java. Which automates the required driver form cloud into your machine.
+Automatic management of Selenium Driver Executable's in run-time for Java. Which automates the required driver form cloud into your machine. So, that the driver will allow WebDriver to [communicate with and control](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Your_own_automation_environment) the browser.
 
 
 ### SeleniumWebDrivers API <img alt="SeleniumWebDrivers" align="middle" src="https://raw.githubusercontent.com/Yash-777/SeleniumWebDrivers/master/docs/SeleniumWebDrivers.png" width="80" height="80">
