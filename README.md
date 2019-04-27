@@ -17,7 +17,7 @@ SeleniumWebDrivers is open source, released under the terms of [Apache 2.0 Licen
 | <img alt="Opera 2015 icon.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Opera_2015_icon.svg/64px-Opera_2015_icon.svg.png" width="40" height="40"> Opera | OperaChromiumDriver [Releases](https://github.com/operasoftware/operachromiumdriver/releases) | [Blink](https://en.wikipedia.org/wiki/Blink_(web_engine)) (formerly [Presto](https://en.wikipedia.org/wiki/Presto_(layout_engine))) | V8 |
 | <img alt="Small &quot;e&quot; letter with a blue aureola" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Internet_Explorer_10%2B11_logo.svg/65px-Internet_Explorer_10%2B11_logo.svg.png" width="41" height="40"> Internet Explorer |  [IEDriverServer](http://selenium-release.storage.googleapis.com) <sup>[CHANGELOG](https://raw.githubusercontent.com/SeleniumHQ/selenium/master/cpp/iedriverserver/CHANGELOG)</sup> | [Trident](https://en.wikipedia.org/wiki/Trident_(layout_engine)) | [Chakra (JScript9)](https://en.wikipedia.org/wiki/Chakra_(JScript_engine)) |
 | <img alt="Microsoft Edge logo.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Microsoft_Edge_logo.svg/60px-Microsoft_Edge_logo.svg.png" width="40" height="40"> Microsoft Edge | [Microsoft WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver) | [EdgeHTML](https://en.wikipedia.org/wiki/EdgeHTML) | [Chakra (JavaScript)](https://en.wikipedia.org/wiki/Chakra_(JScript_engine)) |
-| <img alt="Apple Safari 8.0 Icon" src="https://upload.wikimedia.org/wikipedia/en/6/61/Apple_Safari.png" width="40" height="40"> Safari <sup>[10](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)</sup> | SafariDriver.safariextz <sup>[2.48](http://selenium-release.storage.googleapis.com/index.html?path=2.48/)</sup> | [WebKit](https://en.wikipedia.org/wiki/WebKit) | [Nitro](https://en.wikipedia.org/wiki/WebKit#JavaScriptCore) |
+| <img alt="Apple Safari 8.0 Icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Safari_browser_logo.svg/64px-Safari_browser_logo.svg.png" width="40" height="40"> Safari <sup>[10](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)</sup> | SafariDriver.safariextz <sup>[2.48](http://selenium-release.storage.googleapis.com/index.html?path=2.48/)</sup> | [WebKit](https://en.wikipedia.org/wiki/WebKit) | [Nitro](https://en.wikipedia.org/wiki/WebKit#JavaScriptCore) |
 
 > Note: The SafariDriver is implemented as a Safari browser extension. The driver inverts the traditional client/server relationship and communicates with the WebDriver client using WebSockets.
 
@@ -27,7 +27,9 @@ SeleniumWebDrivers is open source, released under the terms of [Apache 2.0 Licen
 
 In order to use SeleniumWebDrivers in a Maven project, you need to add the following dependency in your pom.xml (Java 7 or higher required):
 
- * Sonatype nexus <sup>Central [Snapshot](https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/SeleniumWebDrivers/), [`pom`](https://search.maven.org/artifact/io.github.Yash-777/SeleniumWebDrivers/1.0.0/jar)</sup>
+You can dowlod form any of these Central Repositories like <img width="100px" src="https://search.maven.org/assets/images/logo.svg?v=1">, <img width="110px" src="https://mvnrepository.com/assets/images/392dffac024b9632664e6f2c0cac6fe5-logo.png">
+
+ * Sonatype nexus <sup>Central [Repository](https://search.maven.org/search?q=g:io.github.Yash-777%20a:SeleniumWebDrivers), [Snapshot](https://oss.sonatype.org/content/repositories/snapshots/io/github/Yash-777/SeleniumWebDrivers/), [`pom`](https://search.maven.org/artifact/io.github.Yash-777/SeleniumWebDrivers/1.0.0/jar)</sup>
  * Maven Repository <sup>Central [Repository](https://repo.maven.apache.org/maven2/io/github/Yash-777/SeleniumWebDrivers/), [`pom`](https://mvnrepository.com/artifact/io.github.Yash-777/SeleniumWebDrivers/1.0.0)</sup>
 
 ```xml
